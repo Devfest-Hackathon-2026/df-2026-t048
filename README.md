@@ -4,7 +4,7 @@
 
 DevFest Hackathon 2026・チーム t048 の提出用ソースです。
 
-**Androidの配布： [PostCheck 0.1.0（APK）](https://github.com/Devfest-Hackathon-2026/df-2026-t048/releases/tag/v0.1.0)**。ReleaseのAssetsからAPKを取得してください。Mapsキーは組み込み済みで、インストールする人の設定は不要です。Android実機での今回のAPKの動作確認は未実施です。
+**Androidの配布： [PostCheck 0.1.1（APK）](https://github.com/Devfest-Hackathon-2026/df-2026-t048/releases/tag/v0.1.1)**。ReleaseのAssetsからAPKを取得してください。Mapsキーは組み込み済みで、インストールする人の設定は不要です。Xperia（Android 16）で検出モデルの初期化・画像処理が成功し、利用者がPC検出を確認しました。[修正と検証範囲](docs/android-detector-fix-20261110.md)。
 
 - モバイル：Flutter（iOS / Android）。UIは日本語・英語。
 - 画像の文字認識・顔検出：ML Kit。物体検出：EfficientDet-Lite0 / MediaPipe。
@@ -51,7 +51,7 @@ flutter run --release -d DEVICE_ID \
 地図ONの署名付きAPKは、Mapsキーと署名情報をPC内に設定してから作成します。
 
 ```sh
-bash scripts/build_android_release_apk.sh 1
+bash scripts/build_android_release_apk.sh 2
 ```
 
 [Androidのキー・署名・APKの作成手順](docs/android-apk-github.md)。インストールする利用者側の環境変数設定は不要です。APKはソースとは別にGitHub Releasesへ添付する配布形式です。ソースのpushだけではReleaseは作成されません。

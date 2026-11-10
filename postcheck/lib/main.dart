@@ -24,6 +24,7 @@ import 'application/check_draft.dart';
 import 'presentation/home_page.dart';
 import 'presentation/postcheck_controller.dart';
 import 'diagnostics/device_smoke.dart';
+import 'diagnostics/device_detector_smoke.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -93,6 +94,9 @@ Future<void> main() async {
       nearby: nearby,
     ),
   );
+  if (const bool.fromEnvironment('POSTCHECK_DETECTOR_SMOKE')) {
+    await runDetectorInitializationSmokeTest();
+  }
   if (const bool.fromEnvironment('POSTCHECK_SELF_TEST')) {
     runApp(
       const MaterialApp(

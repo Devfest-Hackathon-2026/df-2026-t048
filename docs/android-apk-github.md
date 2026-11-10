@@ -1,6 +1,6 @@
 # Androidのキー・署名・APK作成
 
-配布用APK： [PostCheck 0.1.0](https://github.com/Devfest-Hackathon-2026/df-2026-t048/releases/tag/v0.1.0)。インストールする人はAPKを取得するだけで、以下のキー・署名設定はビルドする人だけが行います。
+配布用APK： [PostCheck 0.1.1](https://github.com/Devfest-Hackathon-2026/df-2026-t048/releases/tag/v0.1.1)。インストールする人はAPKを取得するだけで、以下のキー・署名設定はビルドする人だけが行います。
 
 ## Googleマップのキー
 
@@ -34,7 +34,7 @@ FlutterとAndroid SDKを設定し、リポジトリ内の `postcheck/` で実行
 ```sh
 flutter pub get
 bash scripts/setup_screen_detector.sh
-bash scripts/build_android_release_apk.sh 1
+bash scripts/build_android_release_apk.sh 2
 ```
 
 最後の数字はversionCode。地図ON・公開施設API接続・配布用署名のAPKを、既定では `~/Library/Caches/PostCheckAndroidApk/source/build/app/outputs/flutter-apk/app-release.apk` に出力します。`POSTCHECK_ANDROID_APK_BUILD_ROOT` でビルド領域を変更できます。GitHub Actionsはこの提出用リポジトリでは利用できません。

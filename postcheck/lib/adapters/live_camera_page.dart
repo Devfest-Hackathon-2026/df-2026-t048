@@ -19,7 +19,7 @@ import '../domain/location.dart';
 import '../presentation/nearby_controller.dart';
 import '../presentation/nearby_card.dart';
 import '../presentation/camera_viewport.dart';
-import 'screen_device_detector.dart';
+import 'live_device_detector.dart';
 import 'ocr_scripts.dart';
 
 /// Native camera view is an input adapter. Frames never enter persistence/cloud.
@@ -59,8 +59,8 @@ class _LiveCameraPageState extends State<LiveCameraPage>
       .indexWhere((d) => d.lensDirection == direction && d.lensType == type);
   final _clock = Stopwatch()..start();
   final _gate = LiveFrameGate();
-  final _devicesDetector = ScreenDeviceDetector();
-  bool _deviceDetectionUnavailable = false;
+  final _devicesDetector = LiveDeviceDetector();
+  bool get _deviceDetectionUnavailable => _devicesDetector.unavailable;
   final _ocr = [
     for (final script in postCheckOcrScripts) TextRecognizer(script: script),
   ];
@@ -121,6 +121,7 @@ class _LiveCameraPageState extends State<LiveCameraPage>
   Future<void> _open() async {
     final session = ++_session;
     _gate.invalidate();
+    _devicesDetector.retry();
     if (mounted) setState(() => _working = true);
     CameraController? next;
     try {
@@ -255,22 +256,19 @@ class _LiveCameraPageState extends State<LiveCameraPage>
         final r = region(box.left, box.top, box.width, box.height);
         if (r != null) faces.add(r);
       }
-      if (!_deviceDetectionUnavailable) {
-        try {
-          devices.addAll(
-            await _devicesDetector.inspectFrame(
-              frame.planes.single.bytes,
-              frame.width,
-              frame.height,
-              frame.planes.single.bytesPerRow,
-              rotation: android ? rotation : 0,
-              mirror: mirror,
-            ),
-          );
-        } catch (_) {
-          _deviceDetectionUnavailable = true;
-          if (mounted && _active) setState(() {});
-        }
+      try {
+        devices.addAll(
+          await _devicesDetector.inspectFrame(
+            frame.planes.single.bytes,
+            frame.width,
+            frame.height,
+            frame.planes.single.bytesPerRow,
+            rotation: android ? rotation : 0,
+            mirror: mirror,
+          ),
+        );
+      } catch (_) {
+        if (mounted && _active) setState(() {});
       }
       found = RuleChecker(privateWords: widget.privateWords, venue: _venue)
           .check(

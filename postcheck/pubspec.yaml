@@ -1,7 +1,7 @@
 name: postcheck
 description: 投稿前に「ここ、大丈夫？」を確認するローカル処理の投稿チェックアプリ。
 publish_to: none
-version: 0.1.0+1
+version: 0.1.1+2
 environment:
   sdk: ^3.12.0
 dependencies:

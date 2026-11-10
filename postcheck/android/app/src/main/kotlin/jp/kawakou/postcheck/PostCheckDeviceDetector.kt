@@ -84,6 +84,10 @@ class PostCheckDeviceDetector(private val context: Context) : MethodChannel.Meth
                 work()
             } catch (_: Exception) {
                 null
+            } catch (_: LinkageError) {
+                // SDK/JNI static initialization failures must not crash the app.
+                // Keep the error generic: do not log paths or inspected content.
+                null
             }
             main.post {
                 if (boxes == null) {
