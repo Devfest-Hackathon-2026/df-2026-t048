@@ -1,0 +1,31 @@
+{
+  "createdDate": "2026-11-10",
+  "product": "PostCheck facility administration",
+  "generator": "OpenAI built-in image_gen (Codex)",
+  "mode": "new generation",
+  "inputImages": [],
+  "termsUrl": "https://openai.com/policies/terms-of-use/",
+  "postProcessing": "None on source PNGs. StepPill displays the three step icons in white using Flutter BlendMode.srcIn.",
+  "assets": [
+    {
+      "path": "assets/megaphone_mark_ai_20261110.png",
+      "sha256": "f7fae83c908c8e65478e006c7a6a13a9a4fdc05cc82342575a0eb3f4dbe2ddd4",
+      "prompt": "Create a completely new original UI asset for PostCheck facility administration. Use no reference images or existing artwork. No text, letters, numbers, brand logos, watermark, border, or background tile. Centered on a genuinely transparent background. Keep the silhouette bold and immediately readable at small UI size, with generous transparent padding. A crisp flat vector-like raster illustration with rounded corners, disciplined geometric shapes, no photorealism, no gradients, no texture, no drop shadow. Asset: a friendly compact megaphone, pointing diagonally upward toward the right, with two short rounded sound arcs. Main body deep navy #172B4D, with vivid blue #0A6CF1 accents. Use a restrained two-color silhouette. The mark sits in the center of a white website welcome screen, displayed about 168px high. Aspect ratio square."
+    },
+    {
+      "path": "assets/steps/step_facility_ai_20261110.png",
+      "sha256": "10f1498ab559538296fce857d23c9da12540d264a1e6fab37c08d847325b8bd6",
+      "prompt": "Create a completely new original UI asset for PostCheck facility administration. Use no reference images or existing artwork. No text, letters, numbers, brand logos, watermark, border, or background tile. Centered on a genuinely transparent background. Keep the silhouette bold and immediately readable at small UI size, with a consistent generous 15% transparent margin. A crisp flat vector-like raster illustration with rounded corners, disciplined geometric shapes, no photorealism, no gradients, no texture, no drop shadow. Asset: one solid dark navy #172B4D pictogram only, showing a small facility building with a doorway and two windows, with a small location pin integrated at the lower right. All visible strokes and fills must be opaque dark navy. This source asset will be tinted white by the application. Preserve truly empty transparent openings and a clean transparent exterior; no pale material, gray texture, residual background, or distressed edges. Balanced square composition. Intended display size 36px."
+    },
+    {
+      "path": "assets/steps/step_rules_ai_20261110.png",
+      "sha256": "0550b4f1a5abfaf1cc9a3e0b8a28379387b33f64703eefd1b13bf87b748577f7",
+      "prompt": "Create a completely new original UI asset for PostCheck facility administration. Use no reference images or existing artwork. No text, letters, numbers, brand logos, watermark, border, or background tile. Centered on a genuinely transparent background. Keep the silhouette bold and immediately readable at small UI size, with a consistent generous 15% transparent margin. A crisp flat vector-like raster illustration with rounded corners, disciplined geometric shapes, no photorealism, no gradients, no texture, no drop shadow. Asset: one solid dark navy #172B4D pictogram only, showing a rounded sheet of paper with two checklist rows: a short check on the left and a horizontal rule on the right. All visible strokes and fills must be opaque dark navy. This source asset will be tinted white by the application. Preserve truly empty transparent openings and a clean transparent exterior; no pale material, gray texture, residual background, or distressed edges. Balanced square composition. Intended display size 36px."
+    },
+    {
+      "path": "assets/steps/step_confirm_ai_20261110.png",
+      "sha256": "723b43a9c7d48b2d5ea0c315affad39876ce8d1bc1465f70bdac48ba36aeda47",
+      "prompt": "Create a completely new original UI asset for PostCheck facility administration. Use no reference images or existing artwork. No text, letters, numbers, brand logos, watermark, border, or background tile. Centered on a genuinely transparent background. Keep the silhouette bold and immediately readable at small UI size, with a consistent generous 15% transparent margin. A crisp flat vector-like raster illustration with rounded corners, disciplined geometric shapes, no photorealism, no gradients, no texture, no drop shadow. Asset: one solid dark navy #172B4D pictogram only, showing a large confident check mark inside a rounded circular ring, meaning final review completed. All visible strokes and fills must be opaque dark navy. This source asset will be tinted white by the application. Preserve truly empty transparent openings and a clean transparent exterior; no pale material, gray texture, residual background, or distressed edges. Balanced square composition. Intended display size 36px."
+    }
+  ]
+}

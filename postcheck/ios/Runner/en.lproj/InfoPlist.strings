@@ -1,0 +1,4 @@
+"NSLocationWhenInUseUsageDescription" = "Find registered venues near you while using the app. Your location is not tracked in the background.";
+"NSCameraUsageDescription" = "Take photos to review before sharing. Photos are analyzed on your device.";
+"NSPhotoLibraryUsageDescription" = "Choose photos to review before sharing. Photos are analyzed on your device.";
+"NSPhotoLibraryAddUsageDescription" = "Save your reviewed and masked image to Photos when you choose to.";

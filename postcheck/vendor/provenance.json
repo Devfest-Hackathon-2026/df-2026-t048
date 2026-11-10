@@ -1,0 +1,41 @@
+[
+  {
+    "package": "firebase_core",
+    "version": "4.15.2",
+    "source": "https://pub.dev/packages/firebase_core/versions/4.15.2",
+    "change": "CocoaPods fallback by renaming SwiftPM manifests; implementation unchanged",
+    "renamed": [
+      "ios/firebase_core/Package.swift",
+      "macos/firebase_core/Package.swift"
+    ]
+  },
+  {
+    "package": "firebase_auth",
+    "version": "6.7.1",
+    "source": "https://pub.dev/packages/firebase_auth/versions/6.7.1",
+    "change": "CocoaPods fallback by renaming SwiftPM manifests; implementation unchanged",
+    "renamed": [
+      "ios/firebase_auth/Package.swift",
+      "macos/firebase_auth/Package.swift"
+    ]
+  },
+  {
+    "package": "google_sign_in_ios",
+    "version": "6.3.8",
+    "source": "https://pub.dev/packages/google_sign_in_ios/versions/6.3.8",
+    "change": "CocoaPods fallback by renaming SwiftPM manifests; implementation unchanged",
+    "renamed": [
+      "darwin/google_sign_in_ios/Package.swift"
+    ]
+  },
+  {
+    "package": "camera_avfoundation",
+    "version": "0.11.1",
+    "source": "https://pub.dev/packages/camera_avfoundation/versions/0.11.1",
+    "change": "Use semantic videoOrientation for locked orientation instead of fixed sensor rotation angles; iPhone 17 front sensor compatibility",
+    "modified": [
+      "darwin/camera_avfoundation/Sources/camera_avfoundation/DefaultCamera.swift"
+    ],
+    "swiftpm": "retained"
+  }
+]

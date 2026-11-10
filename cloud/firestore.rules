@@ -1,0 +1,7 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Only the Cloud Run service account accesses Firestore using IAM.
+    match /{document=**} { allow read, write: if false; }
+  }
+}

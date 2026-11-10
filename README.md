@@ -1,38 +1,123 @@
-# DevFest Hackathon 2026 提出用リポジトリ
+# PostCheck
 
-  DevFest Hackathon 2026 のチームの **最終提出用** リポジトリです。提出期限までに、作品のコードと資料をこのリポジトリに置いてください。
+写真と投稿文を公開する前に、写り込み・連絡先・施設ルールなどの確認候補を示し、利用者が修正して保存・共有するアプリです。AIは候補を提示し、公開の最終判断は利用者が行います。
 
-  このリポジトリは **公開（public）** です。開催中も、運営・審査員・ほかの参加者が見られます。
+DevFest Hackathon 2026・チーム t048 の提出用ソースです。
 
-  ## はじめに
+- モバイル：Flutter（iOS / Android）。UIは日本語・英語。
+- 画像の文字認識・顔検出：ML Kit。物体検出：EfficientDet-Lite0 / MediaPipe。
+- AI補助：端末内Gemma / LiteRT-LM。写真・文章・OCRをクラウドAIへ送信しません。
+- 施設管理：Flutter Web、Go API、Cloud Run / Firestore / Cloud KMS。
+- [稼働中の施設管理Web](https://postcheck-admin-0521532178.web.app)。管理操作には管理者の認証・権限が必要です。
 
-  1. GitHub から届いた招待を受け入れてください（招待の期限は 7 日です）
-  2. このリポジトリを clone して、提出物を置いてください
+## ディレクトリ
 
-  招待の期限が切れたときや、メンバーが変わったときは、運営に連絡してください。
+| 場所 | 内容 |
+| --- | --- |
+| `postcheck/` | モバイルアプリ、テスト、iOS / Androidのビルド設定 |
+| `admin_web/` | 施設ルールの申請・審査・管理Web |
+| `cloud/` | 施設ルールの公開・管理APIとローカルデモAPI |
+| `packages/postcheck_rules/` | アプリ・管理Web共通のDart契約 |
+| `ml/object_detection/` | 任意の物体検出の学習手順・コード・出典情報 |
+| `docs/` | 要件、設計、実装・配布の記録 |
 
-  ## 開発用のリポジトリは別に作ることをおすすめします
+一般利用者向けWeb版は含めません。施設管理Webは含みます。個人設定のクラウド復元・一般利用者のログインは追加予定がなく、残っている旧接続コードは現在の利用フローでは使いません。
 
-  このリポジトリでは **GitHub Actions と GitHub Pages が使えません**。CI やデプロイ、Pages での公開をしたいときは、チームで開発用のリポジトリを別に作ってください。
+## ビルド・実行
 
-  - 開発用のリポジトリは、チームのメンバーのアカウントや、チームで作った Organization に作ってください
-  - 開発はそちらで進めて、提出期限までに最終版のコードと資料をこのリポジトリに push してください
-  - 審査はこのリポジトリの内容で行います。開発用のリポジトリにしかないものは、審査の対象になりません
-  - デプロイした作品の URL があれば、この README に書いてください
+検証環境はFlutter 3.44.5 / Dart 3.12.2。AndroidはAndroid SDKとJDK 17、iOSはMac・Xcode・CocoaPodsと実機署名が必要です。Go APIはGo 1.26以降を使います。
 
-  ## 秘密情報をコミットしない
+```sh
+git clone https://github.com/Devfest-Hackathon-2026/df-2026-t048.git
+cd df-2026-t048/postcheck
+flutter pub get
+bash scripts/setup_screen_detector.sh
+```
 
-  API キー・パスワード・サービスアカウントの鍵などは、**絶対にコミットしないでください**。公開リポジトリなので、push
-  した時点で誰でも見られます。開発用のリポジトリから持ってくるときも、履歴ごと push すると、過去のコミットに含まれる秘密情報も公開されます。
+標準の検出モデルは上のスクリプトで取得し、SHA-256を検証します。Gemma本体はGit・APKへ同梱せず、アプリ起動後にWi-Fiで取得します。取得中も基本チェックを使えます。任意の試験モデルの重み・学習画像はこの提出用リポジトリには含めません。
 
-  - 秘密情報は `.env` や `.dev.vars` などに書き、コミットしない（`.gitignore` に入れてあります）
-  - 誤って push したら、すぐにキー（鍵）を無効にして作り直し、運営に連絡してください。履歴から消すだけでは不十分です
-  - GitHub の push protection が、よく知られた形式のキーの push を止めることがあります。止められたら、そのキーをコミットから外してください
+### Android
 
-  ## 提出
+Android端末でUSBデバッグを有効にし、`flutter devices` で接続を確認します。キー不要の地図OFF設定で実行する例です。
 
-  提出の方法と締切は、運営からの案内に従ってください。提出期限を過ぎると、このリポジトリは読み取り専用になり、push できなくなります。
+```sh
+flutter run --release -d DEVICE_ID \
+  --dart-define=RULE_API_URL=https://postcheck-admin-0521532178.web.app \
+  --dart-define=MAPS_ENABLED=false
+```
 
-  ## ライセンス
+地図ONの署名付きAPKは、Mapsキーと署名情報をPC内に設定してから作成します。
 
-  [MIT License](LICENSE) です。ほかのライセンスにしたいときは、LICENSE を書き換えてください。
+```sh
+bash scripts/build_android_release_apk.sh 1
+```
+
+[Androidのキー・署名・APKの作成手順](docs/android-apk-github.md)。インストールする利用者側の環境変数設定は不要です。APKはソースとは別にGitHub Releasesへ添付する配布形式です。ソースのpushだけではReleaseは作成されません。
+
+### iPhone
+
+Xcodeで開発チームと署名を設定し、接続したiPhoneを指定します。キー不要の地図OFF設定で実行する例です。
+
+```sh
+bash scripts/run_iphone.sh DEVICE_UDID \
+  --dart-define=RULE_API_URL=https://postcheck-admin-0521532178.web.app \
+  --dart-define=MAPS_ENABLED=false
+```
+
+地図を使う場合は[iOS用Mapsキーの設定](docs/maps-api-setup.md)に従い、ローカルの設定ファイルをビルド時に読み込みます。iOS署名は各自のApple開発環境で設定してください。[詳細な起動・実機手順](postcheck/README.md)。
+
+### 施設管理Webのローカルデモ
+
+リポジトリのルートから、2つのターミナルで実行します。架空データ専用のデモです。
+
+```sh
+cd cloud
+POSTCHECK_DEMO=1 go run ./cmd/demo
+```
+
+```sh
+cd admin_web
+flutter pub get
+bash scripts/web.sh run config/demo.json
+```
+
+[http://127.0.0.1:5173](http://127.0.0.1:5173) で開きます。本番の施設管理APIは認証・認可を維持しており、デモ設定で公開しません。[管理Webの詳細](admin_web/README.md)・[APIの詳細](cloud/README.md)。
+
+## 検証
+
+各ディレクトリで実行します。
+
+```sh
+# postcheck/
+flutter analyze
+flutter test
+
+# admin_web/
+flutter analyze
+flutter test
+
+# packages/postcheck_rules/
+dart pub get
+dart analyze
+dart test
+
+# cloud/
+go test -race ./...
+go vet ./...
+```
+
+[提出用スナップショットと検証範囲](docs/submission-snapshot.md)に今回の結果を記載します。自動テスト、ビルド成功と、実機での動作確認は区別しています。
+
+## 設定と公開範囲
+
+APIキー・パスワード・サービスアカウント鍵・署名鍵・実環境の設定は含めません。`*.example.json` は各自のPCで `*.local.json` にコピーして設定します。ローカル設定や環境変数はGitへのpushで他のPCへ引き継がれません。
+
+開発用リポジトリの過去のGit履歴、大量の画面キャプチャ・発表草稿・作業ログ・ビルドキャッシュは持ち込んでいません。実装記録には当時のローカル出力を指すリンクが残る場合があります。
+
+この提出用リポジトリではGitHub Actions / GitHub Pagesは利用できません。手元でビルドします。[運営のリポジトリ案内](docs/submission-repository-guide.md)。
+
+## 資料とライセンス
+
+[要件](docs/requirements.md)・[製品概要](docs/product.md)・[アーキテクチャ](docs/architecture.md)・[施設ルールと位置情報](docs/architecture-rules-location.md)。
+
+リポジトリのライセンスは[LICENSE](LICENSE)を参照してください。依存ライブラリ・SDK・モデル・フォント等には各権利者の条件が適用され、元のライセンス・NOTICE・出典を保持しています。[アプリ内のライセンス登録](postcheck/lib/app_licenses.dart)、[同梱の利用条件](postcheck/assets/licenses/)、[管理Web画像の生成記録](admin_web/asset_provenance.json)、[任意の学習データの出典](ml/object_detection/credits/)を参照してください。

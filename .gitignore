@@ -1,3 +1,87 @@
+# Local working files and generated caches
+.DS_Store
+__pycache__/
+*.pyc
+/tmp/
+
+# The Flutter app maintains its own build/model/signing exclusions.
+
+# Credentials and local distribution artifacts must not enter GitHub.
+.env
+.env.*
+.envrc
+.envrc.*
+*.env
+!.env.example
+!.env.*.example
+*.p8
+*.p12
+*.pfx
+*.pem
+*.key
+*.mobileprovision
+*.ipa
+*.xcarchive/
+*.litertlm
+*service-account*.json
+*service_account*.json
+*credentials*.json
+*credential*.json
+*.tfvars
+*.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+
+# ZIPs duplicate the design assets already stored next to them.
+/output/**/*.zip
+# Intermediate authoring output and Office lock files are local only.
+/output/**/build/
+~$*
+/packages/**/.dart_tool/
+/packages/**/pubspec.lock
+*.local.json
+*.local.env
+*.local.yaml
+*.local.yml
+*.local.toml
+# Only checked-in examples and the fictional localhost demo belong in these
+# directories. Ignore real configuration even if it lacks a .local suffix.
+/admin_web/config/*.json
+!/admin_web/config/*.example.json
+!/admin_web/config/demo.json
+/postcheck/config/*.json
+!/postcheck/config/*.example.json
+.firebaserc
+**/.firebase/
+**/GoogleService-Info.plist
+**/google-services.json
+**/firebase_options.dart
+/admin_web/firebase.postcheck.json
+/admin_web/web/maps.local.js
+
+# Upstream GoogleSignIn test fixture contains a Google API key; not used by app.
+/postcheck/vendor/google_sign_in_ios/darwin/Tests/GoogleService-Info.plist
+
+# Private local handoff files containing actual client configuration.
+/.private/
+
+# Generated build logs can contain environment values and local signing details.
+*.log
+
+# Local authoring dependencies and intermediate outputs.
+**/node_modules/
+/output/**/.build/
+
+# Local-only notes and hand-off prompts (not shared via Git; 2026-11-10)
+/docs/tasks/
+/docs/object-detection-diagnosis.md
+/docs/object-detection-runbook.md
+
+# Work artifacts (design drafts, screenshots, verification records, pitch drafts).
+# Kept locally, not shared via Git (2026-11-10 user instruction).
+/output/
+
+# Submission repository defaults
 # 秘密情報（コミットしない）
 .env
 .env.*
@@ -32,3 +116,11 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 *.log
+
+# Distribution models and signing material stay outside the source repository.
+*.tflite
+*.apk
+*.aab
+*.jks
+*.keystore
+**/key.properties

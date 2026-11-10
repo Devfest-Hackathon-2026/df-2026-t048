@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-07",
+  "product": "PostCheck",
+  "archive": "/Users/kawakou/Documents/ChatGPT/archives/GoogleHackathon-previous-concepts-2026-11-07",
+  "archive_manifest": "/Users/kawakou/Documents/ChatGPT/archives/GoogleHackathon-previous-concepts-2026-11-07/migration-manifest.json",
+  "moved_paths": 17,
+  "archived_files_verified": 173,
+  "replaced_shared_documents": [
+    "output/concept-posters/README.md"
+  ],
+  "unchanged_rule_files": 5,
+  "unchanged_application_source_files": 17,
+  "unchanged_png_assets": 49,
+  "valid_local_document_links": 45,
+  "application_tests_rerun": false
+}

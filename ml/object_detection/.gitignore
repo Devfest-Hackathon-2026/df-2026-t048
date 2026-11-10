@@ -1,0 +1,8 @@
+# Images, annotations, splits, checkpoints and exported weights stay local.
+/data/
+/runs/
+*.tflite
+*.tfrecord
+*.ckpt*
+*.verify.json
+__pycache__/

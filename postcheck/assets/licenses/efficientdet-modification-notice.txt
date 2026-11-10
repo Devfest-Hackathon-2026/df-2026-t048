@@ -1,0 +1,11 @@
+Modification notice (Apache License 2.0, section 4(b))
+
+efficientdet_lite0.tflite is the unmodified EfficientDet-Lite0 detection
+model published by the TensorFlow authors.
+
+whiteboard_experiment.tflite and docs_experiment.tflite are modified versions
+of EfficientDet-Lite0: the PostCheck team fine-tuned (changed the weights of)
+the pretrained model on Open Images Dataset V7 photos with TFLite Model Maker
+0.4.3 in November 2026, and added new labels (whiteboard; picture_frame,
+poster). See the "Open Images Dataset V7" entry for the training data.
+

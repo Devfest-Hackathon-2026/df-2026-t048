@@ -1,0 +1,11 @@
+# Top-level pins for the training/verification container (linux/amd64, Python 3.9).
+# tflite-model-maker 0.4.3 (2024-01, last release) depends on scann==1.2.6,
+# which pins tensorflow~=2.8.0. Newer numpy/protobuf break TF 2.8.
+# The fully resolved set is recorded in requirements.lock.txt.
+tflite-model-maker==0.4.3
+tflite-support==0.4.4
+tensorflow==2.8.4
+numpy==1.23.3
+protobuf==3.19.6
+numba==0.56.4
+pycocotools==2.0.7

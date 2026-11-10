@@ -1,0 +1,2 @@
+picture_frame
+poster

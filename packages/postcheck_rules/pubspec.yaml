@@ -1,0 +1,11 @@
+name: postcheck_rules
+description: Platform-independent venue rules and API adapters for PostCheck.
+publish_to: none
+version: 0.1.0
+environment:
+  sdk: ^3.12.0
+dependencies:
+  crypto: ^3.0.6
+  http: ^1.6.0
+dev_dependencies:
+  test: ^1.26.0

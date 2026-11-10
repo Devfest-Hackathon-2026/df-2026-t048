@@ -1,0 +1,39 @@
+{
+  "policy": {
+    "name": "架空展示館 🎨",
+    "event": "A&B <2026>\n秋",
+    "area": "1階・東側",
+    "areaKind": "lobby",
+    "sourceLanguage": "ja",
+    "sourceText": "ロビーのみ撮影可。フラッシュ・動画は禁止。",
+    "sourceUrl": "https://example.invalid/rules?a=1&b=2",
+    "photography": "conditional",
+    "publication": "conditional",
+    "commercial": "forbidden",
+    "latitude": 35.0,
+    "longitude": 139.0,
+    "conditions": [
+      "photosOnly",
+      "noFlash",
+      "creditRequired"
+    ],
+    "releaseAt": "2026-11-19T15:00:00.123Z",
+    "validUntil": "2026-12-01T00:00:00Z",
+    "translations": {
+      "en": {
+        "text": "Photos in the lobby only. No flash or video. Credit is required when sharing.",
+        "area": "East side, first floor",
+        "reviewedDigest": "3b1517ff3511d48bcc9a384808eb1889ad7925df0ab90fa04272e5b34496b255"
+      }
+    },
+    "visibility": "public",
+    "words": [
+      "試作A",
+      "試作B",
+      "🎨",
+      ""
+    ]
+  },
+  "rulesDigest": "3f51f8c59f5ae165013f611953358ba1ecc73a108df76c7c4b51de9477475ae5",
+  "translationDigest": "3b1517ff3511d48bcc9a384808eb1889ad7925df0ab90fa04272e5b34496b255"
+}

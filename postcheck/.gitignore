@@ -1,0 +1,60 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Local research, models and development signing stay out of source control.
+.research/
+*.litertlm
+assets/screen_detector/*.tflite
+# 2026-11-09 user-approved exception: experimental whiteboard model (4.4MB) is
+# committed so teammates can test it. See docs/custom-object-detection.md.
+# 2026-11-10 user instruction: the picture frame / poster model (4.4MB) is also
+# committed; its training images are listed in ml/object_detection/credits/.
+assets/screen_detector/diagnostic.jpg
+*.partial
+ios/Flutter/Signing.xcconfig
+
+# Per-environment cloud configuration (never server credentials)
+config/*.local.json

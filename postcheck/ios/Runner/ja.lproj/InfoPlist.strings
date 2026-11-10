@@ -1,0 +1,4 @@
+"NSLocationWhenInUseUsageDescription" = "現在地周辺の登録施設を表示します。常時追跡は行いません。";
+"NSCameraUsageDescription" = "投稿前にチェックする写真を撮影します。写真の解析は端末内で行います。";
+"NSPhotoLibraryUsageDescription" = "投稿前にチェックする写真を選択します。写真の解析は端末内で行います。";
+"NSPhotoLibraryAddUsageDescription" = "確認・マスクした画像を、選択した場合に写真へ保存します。";

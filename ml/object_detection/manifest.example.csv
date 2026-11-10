@@ -1,0 +1,5 @@
+image,group_id,kind,negative_kind,source,license,rights_holder,consent,notes
+room_a_001.jpg,office-a_room-301_2026-11-20,positive,none,team_capture,internal-consent,PostCheck team,not_required,example row - fictional
+room_a_002.jpg,office-a_room-301_2026-11-20,positive,none,team_capture,internal-consent,PostCheck team,not_required,burst shot of the same board: same group_id
+wall_b_001.jpg,office-b_hall_2026-11-21,negative,white_wall,team_capture,internal-consent,PostCheck team,not_required,
+screen_c_001.jpg,univ-c_lecture-2_2026-11-22,negative,projector_screen,team_capture,internal-consent,PostCheck team,not_required,

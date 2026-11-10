@@ -1,0 +1,64 @@
+name: postcheck
+description: 投稿前に「ここ、大丈夫？」を確認するローカル処理の投稿チェックアプリ。
+publish_to: none
+version: 0.1.0+1
+environment:
+  sdk: ^3.12.0
+dependencies:
+  postcheck_rules:
+    path: ../packages/postcheck_rules
+  cupertino_icons: 1.0.9
+  google_maps_flutter: 2.18.1
+  geolocator: ^14.1.2
+  mobile_scanner: ^7.5.0
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  google_mlkit_text_recognition: 0.16.0
+  google_mlkit_face_detection: 0.14.0
+  litertlm: 0.0.14
+  image_picker: 1.2.4
+  image: 4.12.0
+  file_picker: 13.3.2
+  path_provider: 2.1.6
+  share_plus: 13.3.1
+  shared_preferences: ^2.5.5
+  crypto: ^3.0.6
+  url_launcher: ^6.3.2
+  camera: 0.12.2
+  firebase_core: 4.15.2
+  firebase_auth: 6.7.1
+  google_sign_in: ^7.2.0
+  http: ^1.6.0
+dev_dependencies:
+  google_maps_flutter_platform_interface: 2.17.0
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  config:
+    enable-swift-package-manager: true
+  uses-material-design: true
+  assets:
+    - assets/licenses/gemma-4-apache-2.0.txt
+    - assets/licenses/open-images-attribution.txt
+    - assets/licenses/efficientdet-modification-notice.txt
+    - assets/licenses/native-sdk-notices.txt
+    - assets/licenses/google-sdk-terms.txt
+    - assets/licenses/nanopb-zlib.txt
+    - assets/screen_detector/
+
+# Keep Firebase/GoogleSignIn and ML Kit on one CocoaPods dependency graph.
+# LiteRT-LM remains on SwiftPM. See vendor/README.md.
+dependency_overrides:
+  camera_avfoundation:
+    path: vendor/camera_avfoundation
+  firebase_core:
+    path: vendor/firebase_core
+  firebase_auth:
+    path: vendor/firebase_auth
+  google_sign_in_ios:
+    path: vendor/google_sign_in_ios
