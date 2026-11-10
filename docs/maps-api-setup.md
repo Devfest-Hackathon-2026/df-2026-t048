@@ -1,5 +1,7 @@
 # PostCheck — Maps APIキーの取得・設定
 
+> **2026-11-10配布時点の確認**：Androidの配布APKは地図ONで、署名証明書・パッケージ名に制限したAndroid用キーを組み込み済み。管理Webの公開 `maps.local.js` も、公開ドメインとMaps JavaScript APIに制限したWeb用キーと一致することを確認した。公開ファイルとGoogle MapsのスクリプトはHTTP 200。以下の「後で対応」「未設定」は当時の記録であり、現在の配布設定はこの追記を優先する。アプリやブラウザで使うMapsキーは配布物から読み取れるため利用先制限で保護し、Gitのソースには含めない。署名の秘密鍵・パスワード・サービスアカウント鍵は配布物にも含めない。新規ビルド手順は [Android配布](android-apk-github.md)、一般利用者向けWeb版ではなく施設管理Webが対象。
+
 > 2026-11-10管理Web更新：利用者指示で既存Hostingの `MAPS_ENABLED=true` を反映済み。Web専用キー `postcheck-admin-web` をMaps JavaScript APIと本番2ドメイン（`postcheck-admin-0521532178.web.app`／`.firebaseapp.com`）のHTTPリファラーに限定し、Git外の `admin_web/config/app.local.json` へ保存した。HostingのReferrer-Policyは `strict-origin` とし、URLのパス・クエリを送らずオリジンだけでキー制限を確認する。Webビルド成功、公開9ファイルのSHA-256一致、公開オリジン上のブラウザで地図タイルの描画とMapsエラーなしを確認。認証後の施設編集・保存の再試験は今回行っていない。以下のWeb未設定という記述は11月8日時点の履歴。
 
 2026-11-08。現在地は端末GPS、自前登録施設との照合は端末内です。**キーが必要なのはGoogleの地図表示**です。Places API、Gemini API、Firebase／Apple認証は今回の設定対象ではありません。写真・OCRをGoogleへ送る設定でもありません。

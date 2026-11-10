@@ -4,6 +4,8 @@
 
 DevFest Hackathon 2026・チーム t048 の提出用ソースです。
 
+**Androidの配布： [PostCheck 0.1.0（APK）](https://github.com/Devfest-Hackathon-2026/df-2026-t048/releases/tag/v0.1.0)**。ReleaseのAssetsからAPKを取得してください。Mapsキーは組み込み済みで、インストールする人の設定は不要です。Android実機での今回のAPKの動作確認は未実施です。
+
 - モバイル：Flutter（iOS / Android）。UIは日本語・英語。
 - 画像の文字認識・顔検出：ML Kit。物体検出：EfficientDet-Lite0 / MediaPipe。
 - AI補助：端末内Gemma / LiteRT-LM。写真・文章・OCRをクラウドAIへ送信しません。
@@ -107,6 +109,8 @@ go vet ./...
 ```
 
 [提出用スナップショットと検証範囲](docs/submission-snapshot.md)に今回の結果を記載します。自動テスト、ビルド成功と、実機での動作確認は区別しています。
+
+[運営の記載ルールとの照合](docs/submission-format-check.md)。説明ドキュメントの第5項には、Androidは上記Release、Webは施設管理Web、iOSのビルド実行方式はこのリポジトリのURLを記載します。
 
 ## 設定と公開範囲
 

@@ -1,5 +1,7 @@
 # Androidのキー・署名・APK作成
 
+配布用APK： [PostCheck 0.1.0](https://github.com/Devfest-Hackathon-2026/df-2026-t048/releases/tag/v0.1.0)。インストールする人はAPKを取得するだけで、以下のキー・署名設定はビルドする人だけが行います。
+
 ## Googleマップのキー
 
 Maps SDK for Androidを有効にしたGoogle CloudプロジェクトでAndroid用APIキーを作成します。キーのAPI制限はMaps SDK for Android、アプリ制限はパッケージ名 `jp.kawakou.postcheck` と実際にAPKを署名する証明書のSHA-1です。GitHubで直接配布するAPKには、そのAPKの署名証明書を登録します。
